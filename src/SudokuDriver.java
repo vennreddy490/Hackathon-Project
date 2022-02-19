@@ -4,7 +4,7 @@ public class SudokuDriver {
 
         if (args.length == 0) {
 
-            // Calls Randomizer.java
+            Randomizer boardGen = new Randomizer(3);
 
         } else if (args.length == 1) {
 
