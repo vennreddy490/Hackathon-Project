@@ -1,9 +1,12 @@
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 public class ParseCommand {
     private Scanner stdIn;
     private String input;
     private char[][] revealed;
     private char[][] guessed;
+    private char[][] key;
     char[][] testRevealed = {
         {'_', '_', '_', '2', '6', '_', '7', '_', '_'},
         {'6', '8', '_', '_', '7', '_', '_', '9', '_'},
@@ -67,11 +70,31 @@ public class ParseCommand {
     } // help
 
     public void guess() {
-        int row = stdIn.nextInt();
-        int col = stdIn.nextInt();
-        int boardNumber = stdIn.nextInt();
-        String value = String.valueOf(boardNumber);
-        guessed[row][col] = value.charAt(0);
+        try {
+            while (stdIn.hasNext()) {
+                int row = stdIn.nextInt();
+                int col = stdIn.nextInt();
+                int boardNumber = stdIn.nextInt();
+                String value = String.valueOf(boardNumber);
+                guessed[row][col] = value.charAt(0);
+            }
+        } catch (InputMismatchException ime) {
+            System.err.println();
+            System.err.println("Invalid Command: " + ime.getMessage());
+            return;
+        } catch (NoSuchElementException nsee) {
+            System.err.println();
+            System.err.println("Invalid Command: " + nsee.getMessage());
+            return;
+        }
+    }
+
+        public void cheat() {
+            for (int i = 0; i < guessed.length; i++) {
+                for (int l = 0; l < guessed.length; l++) {
+                    guessed[i][l] = key[i][l];               }
+            }
+        }
         // runs the guess command
     } // guess
 
