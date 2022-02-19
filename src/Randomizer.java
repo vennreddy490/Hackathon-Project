@@ -1,13 +1,11 @@
 public class Randomizer {
     
-<<<<<<< HEAD
     private int dim;
 
     public Randomizer(int dim) {
         this.dim = dim;
     }
 
-=======
     public Randomizer(int dimension) {
 
     }
@@ -19,5 +17,4 @@ public class Randomizer {
     public char[] getRevealed() {
         return char[];
     }
->>>>>>> origin/DanielGrigsby
 }
