@@ -12,6 +12,7 @@ public class SudokuGame {
     private char[][] key;
     private char[][] revealed;
     private char[][] guessed;
+    private File seedFile;
     private Scanner input;
     char[][] testRevealed = {
         {'_', '_', '_', '2', '6', '_', '7', '_', '_'},
@@ -37,6 +38,15 @@ public class SudokuGame {
         {'7', '6', '3', '4', '1', '8', '2', '5', '9'}
     };
 
+    public SudokuGame(Scanner stdIn, char[][] key, char[][] revealed) {
+        this.stdIn = stdIn;
+        this.key = key;
+        this.revealed = revealed;
+    }
+
+    public SudokuGame(File seedFile) {
+        this.seedFile = seedFile;
+    }
     public void printBoard () {
         //prints the contents already in the revealed array
         for (int i = 0; i < revealed.length; i++) {
@@ -138,7 +148,7 @@ public class SudokuGame {
         }
         // runs the guess command
     }
-    private void parseSeed(File seedFile) {
+    private void parseSeed() {
         try {
         input = new Scanner(seedFile);
         dimensions = input.nextInt();
@@ -172,11 +182,30 @@ public class SudokuGame {
     }
 
     public void play() {
-        
+        while(!isWon()) {
+            promptUser();
+        }
     }
 
     public void promptUser() {
+        if (seedFile != null) {
+            parseSeed();
+        }
+        printBoard();
+        System.out.println("User Command: ");
+        parseInput();
+        isWon();
+    }
 
+    public boolean isWon() {
+        for (int i = 0; i < guessed.length; i++) {
+            for (int j = 0; j < guessed.length; j++) {
+                if (guessed[i][j] != key[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 

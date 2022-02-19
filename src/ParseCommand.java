@@ -92,12 +92,9 @@ public class ParseCommand {
         public void cheat() {
             for (int i = 0; i < guessed.length; i++) {
                 for (int l = 0; l < guessed.length; l++) {
-                    guessed[i][l] = key[i][l];               }
+                    guessed[i][l] = key[i][l];               
             }
         }
         // runs the guess command
     } // guess
-
-
-
 }
