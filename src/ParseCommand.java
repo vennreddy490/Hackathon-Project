@@ -1,5 +1,9 @@
+import java.util.Scanner;
 public class ParseCommand {
-    
+    private Scanner stdIn;
+    private String input;
+    private char[][] revealed;
+    private char[][] guessed;
     char[][] testRevealed = {
         {'_', '_', '_', '2', '6', '_', '7', '_', '_'},
         {'6', '8', '_', '_', '7', '_', '_', '9', '_'},
@@ -25,8 +29,7 @@ public class ParseCommand {
     };
 
     public void parseInput() {
-
-        String input = "";
+        input = stdIn.next();
         switch (input) {
             case "guess":
                 // calls guess command
@@ -48,14 +51,27 @@ public class ParseCommand {
     } // parseInput
 
     public void quit() {
+        System.out.println();
+        System.out.println("Quitting the game...");
+        System.exit(0);
         // runs the quit command
     } // quit
 
     public void help() {
-        // runs the help command
+        System.out.println();
+        System.out.println("Commands Available...");
+        System.out.println(" - Guess: guess row/col number");
+        System.out.println(" -  Help: help");
+        System.out.println(" -  Quit: quit");
+        System.out.println(" - cheat: cheat");
     } // help
 
     public void guess() {
+        int row = stdIn.nextInt();
+        int col = stdIn.nextInt();
+        int boardNumber = stdIn.nextInt();
+        String value = String.valueOf(boardNumber);
+        guessed[row][col] = value.charAt(0);
         // runs the guess command
     } // guess
 
