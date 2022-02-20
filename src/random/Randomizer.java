@@ -159,8 +159,15 @@ public class Randomizer {
         int counter = 0;
         int x = 0;
         int y = 0;
-        
-        while (counter < 40) {
+        int numberToReveal = 0;
+
+        if (dim == 2) {
+            numberToReveal = 4;
+        } else if (dim == 3) {
+            numberToReveal = 33;
+        }
+
+        while (counter < numberToReveal) {
             x = (int) ((Math.random() * dimSquared));
             y = (int) ((Math.random() * dimSquared));
             
