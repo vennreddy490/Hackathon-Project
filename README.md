@@ -115,4 +115,4 @@ C, D - the x and y coordinates of each revealed tile
 # AUTHORSHIP:
 
 Written by Nate Kite, Venn Reddy, Daniel Grigsby, and Yushus Komarlu for 
-UGAHacks 2022.
+UGAHacks7 (2022). 
