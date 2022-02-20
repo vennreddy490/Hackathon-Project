@@ -30,7 +30,7 @@ public class SudokuGame {
             }
             System.out.println();
         }
-    } // SudokuGame
+    } // SudokuGame (Constructor)
     
     /**
     * Constructor for command line arguments (inputting a seed file).
@@ -41,7 +41,7 @@ public class SudokuGame {
     public SudokuGame(Scanner stdIn, File seedFile) {
         parseSeed(seedFile);
         this.stdIn = stdIn;
-    } // SudokuGame
+    } // SudokuGame (Constructor)
     
     /**
     * Prints the board.
