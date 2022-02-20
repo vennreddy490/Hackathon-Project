@@ -76,6 +76,8 @@ public class SudokuGame {
 
                         if (revealed[(m * dim) + i][(j * dim) + k] != '_') {
                             System.out.printf("[%c]", revealed[(m * dim) + i][(j * dim) + k]);
+                        } else if (cheat) {
+                            System.out.printf(" %c ", key[(m * dim) + i][(j * dim) + k]);
                         } else {
                             System.out.printf(" %c ", guessed[(m * dim) + i][(j * dim) + k]);
                         }
