@@ -9,7 +9,6 @@ public class SudokuGame {
     private char[][] key;
     private char[][] revealed;
     private char[][] guessed;
-    private File seedFile;
 
     public SudokuGame(Scanner stdIn, char[][] key, char[][] revealed) {
         this.stdIn = stdIn;
@@ -23,12 +22,11 @@ public class SudokuGame {
             }
             System.out.println();
         }
-
     }
 
-
-    public SudokuGame(File seedFile) {
-        this.seedFile = seedFile;
+    public SudokuGame(Scanner stdIn, File seedFile) {
+        parseSeed(seedFile);
+        this.stdIn = stdIn;
     }
     public void printBoard () {
 
@@ -114,7 +112,7 @@ public class SudokuGame {
         }
         // runs the guess command
     }
-    private void parseSeed() {
+    private void parseSeed(File seedFile) {
 
         Scanner input;
         int dimensions;
