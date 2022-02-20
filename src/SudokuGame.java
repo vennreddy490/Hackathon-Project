@@ -48,7 +48,7 @@ public class SudokuGame {
         for(int i = 0; i < guessed.length; i++) {
             for(int j = 0; j < guessed.length; j++) {
                 if (cheat == false) {
-                System.out.printf(" %c ", guessed[i][j]);
+                    System.out.printf(" %c ", guessed[i][j]);
                 } else {
                     System.out.printf(" %c ", key[i][j]);
                 }
@@ -63,24 +63,32 @@ public class SudokuGame {
         String userInput;
         
         userInput = stdIn.next();
+        System.out.println(userInput);
         switch (userInput) {
 
             case "guess":
+            guess();
             break;
+
             case "g":
             guess();
+            break;
 
             case "help":
             help();
             break;
+
             case "h":
             help();
+            break;
 
             case "quit":
             quit();
             break;
+
             case "q":
             quit();
+            break;
 
             case "cheat":
             cheat();
@@ -89,6 +97,7 @@ public class SudokuGame {
             default:
             System.err.println();
             System.err.println("Error: Command not recognized.");
+            return;
         } // switch
         
     } // parseInput
@@ -111,13 +120,14 @@ public class SudokuGame {
     
     public void guess() {
         try {
-            while (stdIn.hasNext()) {
-                int row = stdIn.nextInt();
-                int col = stdIn.nextInt();
-                int boardNumber = stdIn.nextInt();
-                String value = String.valueOf(boardNumber);
-                guessed[row][col] = value.charAt(0);
+            int row = stdIn.nextInt();
+            int col = stdIn.nextInt();
+            int boardNumber = stdIn.nextInt();
+            if (revealed[row][col] != 0) {
+                return;
             }
+            String value = String.valueOf(boardNumber);
+            guessed[row][col] = value.charAt(0);
         } catch (InputMismatchException ime) {
             System.err.println();
             System.err.println("Invalid Command: " + ime.getMessage());
@@ -129,6 +139,7 @@ public class SudokuGame {
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             System.err.println();
             System.err.println("Invalid Command " + aioobe.getMessage());
+            return;
         } catch (NullPointerException npe) {
             System.err.println();
             System.err.println("Invalid Command " + npe.getMessage());
