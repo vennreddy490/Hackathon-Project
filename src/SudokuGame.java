@@ -190,11 +190,10 @@ public class SudokuGame {
     */
     private void help() {
         System.out.println();
-        System.out.println("Commands Available...");
-        System.out.println(" - Guess: guess row/col number");
-        System.out.println(" -  Help: help");
-        System.out.println(" -  Quit: quit");
-        System.out.println(" - cheat: cheat");
+        System.out.println("Commands Available:");
+        System.out.println(" - guess/g <row> <col> <digit>: mark (row, col) as containing digit");
+        System.out.println(" - help/h: prints out this menu");
+        System.out.println(" - quit/q: exits the program");
     } // help
     
     /**

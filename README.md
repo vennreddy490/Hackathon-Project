@@ -1,6 +1,3 @@
-A version of Sudoku, to be played in the terminal. Written by Nate Kite, Venn Reddy,
-Daniel Grigsby, and Yushus Komarlu.
-
 # HOW TO PLAY:
 
    ╔═════════╦═════════╦═════════╗
@@ -64,39 +61,43 @@ That means it has to be 3!
 
 Continue filling in numbers like this to win the game!
 
-# COMMANDS
+# COMMANDS:
 
-"guess <x> <y> <digit> / g <x> <y> <digit>"
+"guess <x> <y> <digit>" / "g <x> <y> <digit>"
 
 Marks your guess at position (x, y).
 
-"help"
+"help" / "h"
 
 Gives a helpful list of commands.
 
-"quit"
+"quit" / "q"
 
-exits the game
+Exits the game.
 
-# LEVEL SELECT
+"cheat"
+
+Does absolutely nothing.
+
+# LEVEL SELECT:
 
 Without command line arguments, the game generates a random 3x3 grid (a 3x3 grid contains 
 digits 1-9). But with command line arguments, you can play on different boards.
 
 -random <dimension> / -r <dimension>
 
-Creates a random dimension x dimension board. Currently, the program won't allow a board smaller
-than 2x2 or larger than 3x3.
+Creates a random dimension x dimension board. Currently, the program won't allow a board
+smaller than 2x2 or larger than 3x3.
 
 -level <level number> / -l <level number>
 
-Loads one of our 30 hand-picked levels. Higher numbers are more difficult.
+Loads one of our 40 hand-picked levels. Higher levels are more difficult!
 
 -seed <path> / -s <path>
 
 Allows you to load a board from a custom seed!
 
-# SEED FORMAT
+# SEED FORMATTING:
 
 If you'd like to make your own board, you can use the following seed template:
 
@@ -105,12 +106,16 @@ X X X X
 X X X X
 X X X X
 X X X X
-I J
-I J
-I J
+C D
+C D
 ...
 
 A - the dimensions of the grid (must be 2 or 3)
-B - number of revealed tiles
-X - the number of each index, left to right, top to bottom
-I, J - the x and y coordianates of each revealed tile
+B - number of tiles revealed at the beginning of the game
+X - the digit at eat, left to right, top to bottom
+C, D - the x and y coordinates of each revealed tile
+
+# AUTHORSHIP:
+
+Written by Nate Kite, Venn Reddy, Daniel Grigsby, and Yushus Komarlu for 
+UGAHacks 2022.
