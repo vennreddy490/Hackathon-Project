@@ -20,7 +20,11 @@ public class Randomizer {
         for (int i = 0; i < dimSquared; i++) {
             for (int j = 0; j < dimSquared; j++) {
                 key[i][j] = ' ';
+<<<<<<< HEAD
                 revealed[i][j] = '_';
+=======
+                revealed[i][j] = ' ';
+>>>>>>> a76304f72707a289336d99b5d7c9787ffd51a92e
             }
         }
         

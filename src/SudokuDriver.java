@@ -17,7 +17,7 @@ public class SudokuDriver {
         } else if (args.length == 1) {
 
             File seedFile = new File(args[0]);
-            game = new SudokuGame(seedFile);
+            game = new SudokuGame(stdIn, seedFile);
             game.play();
 
         } else {
