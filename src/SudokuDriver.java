@@ -17,6 +17,20 @@ public class SudokuDriver {
         } else if (args.length == 1) {
 
             File seedFile = new File(args[0]);
+            if (args[0].equalsIgnoreCase("-random") || args[0].equalsIgnoreCase("-r")) {
+                Randomizer random = new Randomizer(args[1]);
+            }
+            else if (args[0].equalsIgnoreCase("-seed") || args[0].equalsIgnoreCase("-s")) {
+                Randomizer random = new Randomizer(args[1]);
+                SudokuGame game = new SudokuGame(stdIn, random.getKey(), random.getRevealed());
+            }
+            else if (args[0].equalsIgnoreCase("-level") || args[0].equalsIgnoreCase("-l")) {
+                SudokuGame game = new SudokuGame(stdIn, args[1]);
+            }
+            else {
+                System.err.println("Invalid Input: Type a legitimate command");
+                System.exit(0);
+            }
             game = new SudokuGame(stdIn, seedFile);
             game.play();
 
