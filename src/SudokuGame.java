@@ -147,6 +147,7 @@ public class SudokuGame {
 
             case "g":
             guess();
+            break;
             
             case "help":
             help();
@@ -154,6 +155,7 @@ public class SudokuGame {
 
             case "h":
             help();
+            break;
             
             case "quit":
             quit();
