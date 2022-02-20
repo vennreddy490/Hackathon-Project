@@ -42,8 +42,11 @@ public class SudokuGame {
         this.stdIn = stdIn;
     }
 
-    public void printBoard () {
-        
+    /**
+     * Prints the board.
+     */
+    private void printBoard () {
+
         for(int i = 0; i < guessed.length; i++) {
             for(int j = 0; j < guessed.length; j++) {
                 System.out.printf(" %c ", guessed[i][j]);
@@ -52,13 +55,11 @@ public class SudokuGame {
         }    
     }
     
-    public void parseInput() {
-        
+    private void parseInput() {
         String userInput;
-        
         userInput = stdIn.next();
-        switch (userInput) {
 
+        switch (userInput) {
             case "guess":
             break;
             case "g":
@@ -84,17 +85,19 @@ public class SudokuGame {
             System.err.println();
             System.err.println("Error: Command not recognized.");
         } // switch
-        
     } // parseInput
     
-    public void quit() {
+    /**
+     * 
+     */
+    private void quit() {
         System.out.println();
         System.out.println("Quitting the game...");
         System.exit(0);
         // runs the quit command
     } // quit
     
-    public void help() {
+    private void help() {
         System.out.println();
         System.out.println("Commands Available...");
         System.out.println(" - Guess: guess row/col number");
@@ -103,7 +106,7 @@ public class SudokuGame {
         System.out.println(" - cheat: cheat");
     } // help
     
-    public void guess() {
+    private void guess() {
         try {
             while (stdIn.hasNext()) {
                 int row = stdIn.nextInt();
@@ -130,13 +133,12 @@ public class SudokuGame {
         }
     }
     
-    public void cheat() {
+    private void cheat() {
         for (int i = 0; i < guessed.length; i++) {
             for (int l = 0; l < guessed.length; l++) {
                 guessed[i][l] = key[i][l];               
             }
         }
-        // runs the guess command
     }
 
     private void parseSeed(File seedFile) {
@@ -187,14 +189,14 @@ public class SudokuGame {
         }
     }
     
-    public void promptUser() {
+    private void promptUser() {
         printBoard();
         System.out.println("User Command: ");
         parseInput();
         isWon();
     }
     
-    public boolean isWon() {
+    private boolean isWon() {
         for (int i = 0; i < guessed.length; i++) {
             for (int j = 0; j < guessed.length; j++) {
                 if (guessed[i][j] != key[i][j]) {
