@@ -63,7 +63,6 @@ public class SudokuGame {
         String userInput;
         
         userInput = stdIn.next();
-        System.out.println(userInput);
         switch (userInput) {
 
             case "guess":
@@ -123,7 +122,7 @@ public class SudokuGame {
             int row = stdIn.nextInt();
             int col = stdIn.nextInt();
             int boardNumber = stdIn.nextInt();
-            if (revealed[row][col] != 0) {
+            if (revealed[row][col] == '_') {
                 return;
             }
             String value = String.valueOf(boardNumber);
@@ -215,6 +214,8 @@ public class SudokuGame {
                 }
             }
         }
+        System.out.println("Congratulations! You Won!!");
+        System.exit(0);
         return true;
     }
     
