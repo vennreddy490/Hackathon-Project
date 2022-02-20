@@ -64,15 +64,19 @@ public class SudokuGame {
         userInput = stdIn.next();
         switch (userInput) {
             case "guess":
-                // calls guess command
+                // calls guess command=
+                guess();
                 break;
             case "help":
                 // calls help command
+                help();
                 break;
             case "quit":
+                quit();
                 // calls quit command
                 break;
             case "cheat":
+                cheat();
                 // calls cheat command
                 break;
             default:
