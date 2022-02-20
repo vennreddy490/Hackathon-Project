@@ -30,7 +30,6 @@ public class Randomizer {
         }
         
         makeRandomRevealed();
-        
     }
     
     
@@ -161,7 +160,7 @@ public class Randomizer {
         int x = 0;
         int y = 0;
         
-        while (counter < 21) {
+        while (counter < 40) {
             x = (int) ((Math.random() * dimSquared));
             y = (int) ((Math.random() * dimSquared));
             
