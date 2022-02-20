@@ -94,7 +94,7 @@ public class SudokuGame {
     } // parseInput
     
     /**
-     * 
+     * Quits the game.
      */
     private void quit() {
         System.out.println();
@@ -103,6 +103,9 @@ public class SudokuGame {
         // runs the quit command
     } // quit
     
+    /**
+     * Prints out the help menu.
+     */
     private void help() {
         System.out.println();
         System.out.println("Commands Available...");
@@ -112,6 +115,9 @@ public class SudokuGame {
         System.out.println(" - cheat: cheat");
     } // help
     
+    /**
+     * Is SUPPOSED to track the guess. But I don't think it works.
+     */
     private void guess() {
         try {
             while (stdIn.hasNext()) {
@@ -139,6 +145,10 @@ public class SudokuGame {
         }
     }
     
+    /**
+     * Sets {@code cheat} to true, which lets the {@code printBoard} method know to
+     * print out key instead of revealed.
+     */
     private void cheat() {
         cheat = true;
         // runs the guess command
@@ -186,19 +196,29 @@ public class SudokuGame {
         }
     }
     
+    /**
+     * Plays the game by calling other methods. To be used by a driver.
+     */
     public void play() {
         while(!isWon()) {
             promptUser();
         }
     }
     
+    /**
+     * Prompts the user and then calls other methods to parse the input.
+     */ 
     private void promptUser() {
         printBoard();
         System.out.println("User Command: ");
         parseInput();
-        isWon();
     }
     
+    /**
+     * Checks the board to see if the player has won.
+     * 
+     * @return true if the player has won, false otherwise.
+     */
     private boolean isWon() {
         for (int i = 0; i < guessed.length; i++) {
             for (int j = 0; j < guessed.length; j++) {
