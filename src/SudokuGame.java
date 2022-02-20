@@ -102,6 +102,7 @@ public class SudokuGame {
                 int row = stdIn.nextInt();
                 int col = stdIn.nextInt();
                 int boardNumber = stdIn.nextInt();
+                System.out.println("help");
                 String value = String.valueOf(boardNumber);
                 guessed[row][col] = value.charAt(0);
             }
@@ -112,6 +113,13 @@ public class SudokuGame {
         } catch (NoSuchElementException nsee) {
             System.err.println();
             System.err.println("Invalid Command: " + nsee.getMessage());
+            return;
+        } catch (ArrayIndexOutOfBoundsException aioobe) {
+            System.err.println();
+            System.err.println("Invalid Command " + aioobe.getMessage());
+        } catch (NullPointerException npe) {
+            System.err.println();
+            System.err.println("Invalid Command " + npe.getMessage());
             return;
         }
     }
