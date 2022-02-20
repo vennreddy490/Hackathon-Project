@@ -139,7 +139,6 @@ public class SudokuGame {
     private void parseInput() {
         String userInput;
         userInput = stdIn.next();
-        
         switch (userInput) {
             case "guess":
             guess();
@@ -172,7 +171,7 @@ public class SudokuGame {
             default:
             System.err.println();
             System.err.println("Error: Command not recognized.");
-            return;
+            break;
         } // switch
     } // parseInput
     
@@ -207,6 +206,8 @@ public class SudokuGame {
             int col = stdIn.nextInt();
             int boardNumber = stdIn.nextInt();
             if (revealed[row][col] != '_') {
+                System.err.println();
+                System.err.println("Invalid Command: Spot already revealed!");
                 return;
             }
             String value = String.valueOf(boardNumber);
