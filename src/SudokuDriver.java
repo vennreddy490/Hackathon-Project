@@ -3,8 +3,6 @@ import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
-import javax.swing.plaf.basic.BasicInternalFrameUI.InternalFramePropertyChangeListener;
-
 public class SudokuDriver {
     public static void main(String[] args) {
 
@@ -28,6 +26,8 @@ public class SudokuDriver {
                     if (scan.hasNextInt()){
                         if ((Integer.parseInt(args[1]) == 2 || (Integer.parseInt(args[1]) == 3))) {
                             Randomizer random = new Randomizer(Integer.parseInt(args[1]));
+                            game = new SudokuGame(stdIn, random.getKey(), random.getRevealed());
+                            game.play();
                         }
                         else {
                             System.err.println("Input Error: Type in dimension value of either 2 or 3");
@@ -50,6 +50,7 @@ public class SudokuDriver {
                         if ((Integer.parseInt(args[1]) == 2 || (Integer.parseInt(args[1]) == 3))) {
                             Randomizer random = new Randomizer(Integer.parseInt(args[1]));
                             SudokuGame gameOpt1 = new SudokuGame(stdIn, random.getKey(), random.getRevealed());
+                            gameOpt1.play();
                         }
                         else {
                             System.err.println("Input Error: Type in dimension value of either 2 or 3");
@@ -72,6 +73,7 @@ public class SudokuDriver {
                     if (scan.hasNextInt()){
                         if ((Integer.parseInt(args[1]) >= 1) || (Integer.parseInt(args[1]) <= 30)) {
                             SudokuGame gameOpt2 = new SudokuGame(stdIn, dimension);
+                            gameOpt2.play();
                         }
                         else {
                             System.err.println("Input Error: Type in a level value from 1 to 30");
