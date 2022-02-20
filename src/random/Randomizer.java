@@ -30,7 +30,7 @@ public class Randomizer {
         }
         
         makeRandomRevealed();
-    }
+    } // Randomizer
     
     
     /**
@@ -40,7 +40,7 @@ public class Randomizer {
     */
     public char[][] getKey() {
         return key;
-    }
+    } // getKey
     
     /**
     * Getter method for the randomly produced revealed array.
@@ -49,7 +49,7 @@ public class Randomizer {
     */
     public char[][] getRevealed() {
         return revealed;
-    }
+    } // getRevealed
     
     /**
     * Simple method to print out the key. To be used for debugging with a driver.
@@ -62,7 +62,7 @@ public class Randomizer {
             System.out.println();
         }
         System.out.println();
-    }
+    } // printKey
     
     /**
     * Simple method to print out the revealed array. To be used for debugging with a driver.
@@ -75,7 +75,7 @@ public class Randomizer {
             System.out.println();
         }
         System.out.println();
-    }
+    } // printRevealed
     
     /**
     * Returns false if the character already exists in the same row, column, or box.
@@ -111,7 +111,7 @@ public class Randomizer {
             }
         }
         return true;
-    }
+    } // isLegal
     
     /**
     * Generates a random legal number in the given position.
@@ -127,7 +127,7 @@ public class Randomizer {
         } while (!isLegal(row, column, randomChar));
         
         return randomChar;
-    }
+    } // generateLegalRandom
     
     boolean makeRandomKey() {
         
@@ -144,7 +144,7 @@ public class Randomizer {
         }
         
         return true;
-    }
+    } // makeRandomKey
     
     private boolean hasLegalOption(int row, int column) {
         for (int i = 0; i < dimSquared; i++) {
@@ -153,7 +153,7 @@ public class Randomizer {
             }
         }
         return false;
-    }   
+    } // hasLegalOption
     
     private void makeRandomRevealed() {
         int counter = 0;
@@ -178,7 +178,7 @@ public class Randomizer {
             
         }
         
-    }
+    } // makeRandomRevealed
     
     
 }
