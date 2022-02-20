@@ -2,7 +2,7 @@ package random;
 public class Randomizer {
     
     private int dim;
-    private int dimSquared; // this number comes up enough it's worth a variable.
+    private int dimSquared; // this number comes up often enough it's worth a variable.
     private char[][] key;
     private char[][] revealed;
     
