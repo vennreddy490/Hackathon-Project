@@ -22,14 +22,19 @@ public class PrintBoard {
                 }
             }
         }
-
+        //carry over the elements of the revealed array to the guessed array as initial values
+        for (int i = 0; i < guessed.length; i++){
+            for (int j = 0; j < guessed[i].length; j++){
+                guessed[i][j] == revealed[i][j];
+            }
+        }
         for (int i = 0; i < dim; i++) {
                 //if statement: checks if a guess was already made for a square that has an underline and then prints the char passed in for the square 
                 if ((revealed[i][j] == "_") && (guessed[i][j] != "_"))
                 System.out.print (" " + guessed[i][j] + " ");
                 //else: basic grid square print out if no guess was made
                 if ((revealed[i][j] == "_") && (guessed[i][j] == "_"))
-                System.out.print (" _");
+                System.out.print (" _ ");
             }
         }
     } //printBoard
