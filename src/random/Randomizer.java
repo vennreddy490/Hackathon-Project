@@ -162,7 +162,7 @@ public class Randomizer {
         int numberToReveal = 0;
 
         if (dim == 2) {
-            numberToReveal = 4;
+            numberToReveal = 7;
         } else if (dim == 3) {
             numberToReveal = 33;
         }

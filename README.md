@@ -81,25 +81,22 @@ Does absolutely nothing.
 
 # LEVEL SELECT:
 
-Without command line arguments, the game generates a random 3x3 grid (a 3x3 grid contains 
-digits 1-9). But with command line arguments, you can play on different boards.
-
 -random <dimension> / -r <dimension>
 
 Creates a random dimension x dimension board. Currently, the program won't allow a board
 smaller than 2x2 or larger than 3x3.
 
--level <level number> / -l <level number>
+# COMING SOON:
 
-Loads one of our 40 hand-picked levels. Higher levels are more difficult!
+We will be soon be implementing a level system with predesigned levels in the case you don't want to
+play on a randomly generated board!
 
--seed <path> / -s <path>
-
-Allows you to load a board from a custom seed!
+It will also include the opportunity to load your own boards to test your skills
+on boards you choose!
 
 # SEED FORMATTING:
 
-If you'd like to make your own board, you can use the following seed template:
+In the future, if you'd like to make your own board, you can use the following seed template:
 
 A B
 X X X X
