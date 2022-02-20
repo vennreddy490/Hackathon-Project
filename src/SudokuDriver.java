@@ -7,6 +7,7 @@ public class SudokuDriver {
 
         SudokuGame game;
         Scanner stdIn = new Scanner(System.in);
+        Scanner scan;
 
         if (args.length == 0) {
 
@@ -18,9 +19,10 @@ public class SudokuDriver {
 
             File seedFile = new File(args[0]);
             if (args[0].equalsIgnoreCase("-random") || args[0].equalsIgnoreCase("-r")) {
-                if (String.parseInt(args[1])){
-                    if ((String.parseInt(args[1]) == 4 || (String.parseInt(args[1]) == 9)) {
-                    Randomizer random = new Randomizer(args[1]);
+                File dimension = new File(args[1]);
+                if (dimension.hasNextInt()){
+                    if ((args[1].parseInt() == 2 || (args[1].parseInt() == 3)) {
+                        Randomizer random = new Randomizer(args[1].parseInt());
                     }
                     else {
                         System.err.println("Input Error: Type in dimension value of either 2 or 3");
@@ -31,7 +33,8 @@ public class SudokuDriver {
                 }
             }
             else if (args[0].equalsIgnoreCase("-seed") || args[0].equalsIgnoreCase("-s")) {
-                 if (String.parseInt(args[1])){
+                File dimension = new File(args[1]);
+                if (dimension.hasNextInt()) {
                     if ((String.parseInt(args[1]) == 4 || (String.parseInt(args[1]) == 9)) {
                         Randomizer random = new Randomizer(args[1]);
                         SudokuGame game = new SudokuGame(stdIn, random.getKey(), random.getRevealed());
@@ -45,7 +48,8 @@ public class SudokuDriver {
                 }
             }
             else if (args[0].equalsIgnoreCase("-level") || args[0].equalsIgnoreCase("-l")) {
-                if (String.parseInt(args[1])){
+                File dimension = new File(args[1]);
+                if (dimension.hasNextInt()) {
                     if ((String.parseInt(args[1]) >= 1) || (String.parseInt(args[1]) <= 30)) {
                         SudokuGame game = new SudokuGame(stdIn, args[1]);
                     }
