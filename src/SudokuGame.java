@@ -10,6 +10,13 @@ public class SudokuGame {
     private char[][] revealed;
     private char[][] guessed;
     
+    /**
+     * Constructor for no command line arguments (board generated via the randomizer).
+     * 
+     * @param stdIn the Scanner for standard input
+     * @param key randomly generated key
+     * @param revealed the randomly generated starting hints
+     */
     public SudokuGame(Scanner stdIn, char[][] key, char[][] revealed) {
         this.stdIn = stdIn;
         this.key = key;
@@ -23,11 +30,17 @@ public class SudokuGame {
             System.out.println();
         }
     }
-    
+    /**
+     * Constructor for command line arguments (inputting a seed file).
+     * 
+     * @param stdIn the Scanner for standard input
+     * @param seedFile the seed file.
+     */
     public SudokuGame(Scanner stdIn, File seedFile) {
         parseSeed(seedFile);
         this.stdIn = stdIn;
     }
+
     public void printBoard () {
         
         for(int i = 0; i < guessed.length; i++) {
