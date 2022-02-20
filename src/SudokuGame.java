@@ -62,14 +62,23 @@ public class SudokuGame {
             // calls guess command=
             guess();
             break;
+            case "g":
+            //calls guess command=
+            guess();
             case "help":
             // calls help command
             help();
             break;
+            case "h":
+            //calls help command
+            help();
             case "quit":
             quit();
             // calls quit command
             break;
+            case "q":
+            //calls quit command
+            quit();
             case "cheat":
             cheat();
             // calls cheat command
