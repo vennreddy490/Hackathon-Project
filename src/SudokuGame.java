@@ -30,7 +30,7 @@ public class SudokuGame {
             }
             System.out.println();
         }
-    }
+    } // SudokuGame
     
     /**
     * Constructor for command line arguments (inputting a seed file).
@@ -41,7 +41,7 @@ public class SudokuGame {
     public SudokuGame(Scanner stdIn, File seedFile) {
         parseSeed(seedFile);
         this.stdIn = stdIn;
-    }
+    } // SudokuGame
     
     /**
     * Prints the board.
@@ -134,7 +134,7 @@ public class SudokuGame {
             System.out.print(" ");
         }
         System.out.println();
-    }
+    } // printBoard
     
     private void parseInput() {
         String userInput;
@@ -228,7 +228,7 @@ public class SudokuGame {
             System.err.println("Invalid Command " + npe.getMessage());
             return;
         }
-    }
+    } // guess
     
     /**
     * Sets {@code cheat} to true, which lets the {@code printBoard} method know to
@@ -279,7 +279,7 @@ public class SudokuGame {
             System.err.println(nsee.getMessage());
             System.exit(2);
         }
-    }
+    } // parseSeed
     
     /**
     * Plays the game by calling other methods. To be used by a driver.
@@ -288,7 +288,7 @@ public class SudokuGame {
         while(!isWon()) {
             promptUser();
         }
-    }
+    } // play
     
     /**
     * Prompts the user and then calls other methods to parse the input.
@@ -297,7 +297,7 @@ public class SudokuGame {
         printBoard();
         System.out.println("User Command: ");
         parseInput();
-    }
+    } // promptUser
     
     /**
     * Checks the board to see if the player has won.
@@ -315,7 +315,7 @@ public class SudokuGame {
         System.out.println("Congratulations! You Won!!");
         System.exit(0);
         return true;
-    }
+    } // isWon
     
     
     
