@@ -155,7 +155,7 @@ public class SudokuGame {
             case "h":
             help();
             break;
-
+            
             case "quit":
             quit();
             break;
@@ -206,6 +206,8 @@ public class SudokuGame {
             int col = stdIn.nextInt();
             int boardNumber = stdIn.nextInt();
             if (revealed[row][col] != '_') {
+                System.err.println();
+                System.err.println("Invalid Command: Spot already revealed!");
                 return;
             }
             String value = String.valueOf(boardNumber);

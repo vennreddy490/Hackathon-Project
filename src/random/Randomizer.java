@@ -2,7 +2,7 @@ package random;
 public class Randomizer {
     
     private int dim;
-    private int dimSquared; // this number comes up enough it's worth a variable.
+    private int dimSquared; // this number comes up often enough it's worth a variable.
     private char[][] key;
     private char[][] revealed;
     
@@ -159,8 +159,15 @@ public class Randomizer {
         int counter = 0;
         int x = 0;
         int y = 0;
-        
-        while (counter < 40) {
+        int numberToReveal = 0;
+
+        if (dim == 2) {
+            numberToReveal = 4;
+        } else if (dim == 3) {
+            numberToReveal = 33;
+        }
+
+        while (counter < numberToReveal) {
             x = (int) ((Math.random() * dimSquared));
             y = (int) ((Math.random() * dimSquared));
             
