@@ -30,6 +30,7 @@ public class SudokuGame {
             System.out.println();
         }
     }
+
     /**
      * Constructor for command line arguments (inputting a seed file).
      * 
@@ -48,8 +49,7 @@ public class SudokuGame {
                 System.out.printf(" %c ", guessed[i][j]);
             }
             System.out.println();
-        }
-        
+        }    
     }
     
     public void parseInput() {
@@ -58,37 +58,31 @@ public class SudokuGame {
         
         userInput = stdIn.next();
         switch (userInput) {
+
             case "guess":
-            // calls guess command=
-            guess();
             break;
             case "g":
-            //calls guess command=
             guess();
-            break;
+
             case "help":
-            // calls help command
             help();
             break;
             case "h":
-            //calls help command
             help();
-            break;
+
             case "quit":
             quit();
-            // calls quit command
             break;
             case "q":
-            //calls quit command
             quit();
-            break;
+
             case "cheat":
             cheat();
-            // calls cheat command
             break;
+
             default:
-            // error message for command not recognized
-            // reprints board and prompts user
+            System.err.println();
+            System.err.println("Error: Command not recognized.");
         } // switch
         
     } // parseInput
@@ -115,7 +109,6 @@ public class SudokuGame {
                 int row = stdIn.nextInt();
                 int col = stdIn.nextInt();
                 int boardNumber = stdIn.nextInt();
-                System.out.println("help");
                 String value = String.valueOf(boardNumber);
                 guessed[row][col] = value.charAt(0);
             }
