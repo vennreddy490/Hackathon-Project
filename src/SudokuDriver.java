@@ -1,6 +1,9 @@
 import random.Randomizer;
 import java.io.File;
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+
+import javax.swing.plaf.basic.BasicInternalFrameUI.InternalFramePropertyChangeListener;
 
 public class SudokuDriver {
     public static void main(String[] args) {
@@ -19,46 +22,68 @@ public class SudokuDriver {
 
             File seedFile = new File(args[0]);
             if (args[0].equalsIgnoreCase("-random") || args[0].equalsIgnoreCase("-r")) {
-                File dimension = new File(args[1]);
-                if (dimension.hasNextInt()){
-                    if ((args[1].parseInt() == 2 || (args[1].parseInt() == 3)) {
-                        Randomizer random = new Randomizer(args[1].parseInt());
+                try {
+                    File dimension = new File(args[1]);
+                    scan = new Scanner(dimension); //npe
+                    if (scan.hasNextInt()){
+                        if ((Integer.parseInt(args[1]) == 2 || (Integer.parseInt(args[1]) == 3))) {
+                            Randomizer random = new Randomizer(Integer.parseInt(args[1]));
+                        }
+                        else {
+                            System.err.println("Input Error: Type in dimension value of either 2 or 3");
+                        }
                     }
                     else {
-                        System.err.println("Input Error: Type in dimension value of either 2 or 3");
+                        System.err.println("Input Mismatch: Type in an integer");
                     }
-                }
-                else {
-                    System.err.println("Input Mismatch: Type in an integer")
+                }   
+
+                catch (FileNotFoundException fnfe) {
+                    System.err.println("File Not Found Exception: the file is not found");
                 }
             }
             else if (args[0].equalsIgnoreCase("-seed") || args[0].equalsIgnoreCase("-s")) {
-                File dimension = new File(args[1]);
-                if (dimension.hasNextInt()) {
-                    if ((String.parseInt(args[1]) == 4 || (String.parseInt(args[1]) == 9)) {
-                        Randomizer random = new Randomizer(args[1]);
-                        SudokuGame game = new SudokuGame(stdIn, random.getKey(), random.getRevealed());
+                 try {
+                    File dimension = new File(args[1]);
+                    scan = new Scanner(dimension);
+                    if (scan.hasNextInt()){
+                        if ((Integer.parseInt(args[1]) == 2 || (Integer.parseInt(args[1]) == 3))) {
+                            Randomizer random = new Randomizer(Integer.parseInt(args[1]));
+                            SudokuGame gameOpt1 = new SudokuGame(stdIn, random.getKey(), random.getRevealed());
+                        }
+                        else {
+                            System.err.println("Input Error: Type in dimension value of either 2 or 3");
+                        }
                     }
                     else {
-                        System.err.println("Input Error: Type in dimension value of either 2 or 3");
+                        System.err.println("Input Mismatch: Type in an integer");
                     }
                 }
-                else {
-                    System.err.println("Input Mismatch: Type in an integer")
+
+                catch (FileNotFoundException fnfe) {
+                    System.err.println("File Not Found Exception: the file is not found");
                 }
+
             }
             else if (args[0].equalsIgnoreCase("-level") || args[0].equalsIgnoreCase("-l")) {
-                File dimension = new File(args[1]);
-                if (dimension.hasNextInt()) {
-                    if ((String.parseInt(args[1]) >= 1) || (String.parseInt(args[1]) <= 30)) {
-                        SudokuGame game = new SudokuGame(stdIn, args[1]);
+                try {
+                    File dimension = new File(args[1]);
+                    scan = new Scanner(dimension);
+                    if (scan.hasNextInt()){
+                        if ((Integer.parseInt(args[1]) >= 1) || (Integer.parseInt(args[1]) <= 30)) {
+                            SudokuGame gameOpt2 = new SudokuGame(stdIn, dimension);
+                        }
+                        else {
+                            System.err.println("Input Error: Type in a level value from 1 to 30");
+                        }
                     }
                     else {
-                        System.err.println("Input Error: Type in a level value from 1 to 30");
+                        System.err.println("Input Mismatch: Type in an integer");
                     }
                 }
-                else {
-                    System.err.println("Input Mismatch: Type in an integer")
+
+                catch (FileNotFoundException fnfe) {
+                    System.err.println("File Not Found Exception: the file is not found");
                 }
             }
             else {
