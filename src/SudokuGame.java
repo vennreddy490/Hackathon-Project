@@ -163,6 +163,7 @@ public class SudokuGame {
 
             case "q":
             quit();
+            break;
             
             case "cheat":
             cheat();
