@@ -6,61 +6,45 @@ import java.util.Scanner;
 
 public class SudokuGame {
     private Scanner stdIn;
-    private String userInput;
-    private int dimensions;
-    private int indencies;
     private char[][] key;
     private char[][] revealed;
     private char[][] guessed;
     private File seedFile;
-    private Scanner input;
 
     public SudokuGame(Scanner stdIn, char[][] key, char[][] revealed) {
         this.stdIn = stdIn;
         this.key = key;
         this.revealed = revealed;
         guessed = new char[key.length][key.length];
-     }
+
+        for(int i = 0; i < guessed.length; i++) {
+            for(int j = 0; j < guessed.length; j++) {
+                guessed[i][j] = revealed[i][j];
+            }
+            System.out.println();
+        }
+
+    }
+
 
     public SudokuGame(File seedFile) {
         this.seedFile = seedFile;
     }
     public void printBoard () {
-        //prints the contents already in the revealed array
-        for (int i = 0; i < revealed.length; i++) {
-            for (int j = 0; j < revealed[i].length; j++) {
-                //need to also figure out a way to print vertical lines after certain number of blocks based on dimensions of 2D Array
-                //should go after print out number
-                if((revealed.length == 9) && (i % 3 == 0)) {
-                    System.out.print (" | ");
-                }
-                
-                else if((revealed.length == 4) && (i % 2 == 0)) {
-                    System.out.print (" | ");
-                }
-                //if the revealed value is "_"
-                else if (revealed[i][j] == '_') {
-                    System.out.print ("[ " + revealed[i][j] + " ]");
-                }
-                else {
-                    System.out.print (" " + revealed[i][j] + " ");
-                }
+
+        for(int i = 0; i < guessed.length; i++) {
+            for(int j = 0; j < guessed.length; j++) {
+                System.out.printf(" %c ", guessed[i][j]);
             }
+            System.out.println();
         }
 
-        for (int i = 0; i < dimensions; i++) {
-            for (int j = 0; j < dimensions; j++) {
-                //if statement: checks if a guess was already made for a square that has an underline and then prints the char passed in for the square 
-                if ((revealed[i][j] == '_') && (guessed[i][j] != '_'))
-                System.out.print (" " + guessed[i][j] + " ");
-                //else: basic grid square print out if no guess was made
-                if ((revealed[i][j] == '_') && (guessed[i][j] == '_'))
-                System.out.print (" _");
-            }
-        }
-    } //printBoard
+    }
 
     public void parseInput() {
+
+        String userInput;
+
         userInput = stdIn.next();
         switch (userInput) {
             case "guess":
@@ -131,6 +115,11 @@ public class SudokuGame {
         // runs the guess command
     }
     private void parseSeed() {
+
+        Scanner input;
+        int dimensions;
+        int indencies;
+
         try {
         input = new Scanner(seedFile);
         dimensions = input.nextInt();
