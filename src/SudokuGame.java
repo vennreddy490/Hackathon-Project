@@ -9,6 +9,7 @@ public class SudokuGame {
     private char[][] key;
     private char[][] revealed;
     private char[][] guessed;
+    private boolean cheat = false;
     
     /**
      * Constructor for no command line arguments (board generated via the randomizer).
@@ -49,10 +50,15 @@ public class SudokuGame {
 
         for(int i = 0; i < guessed.length; i++) {
             for(int j = 0; j < guessed.length; j++) {
+                if (cheat == false) {
                 System.out.printf(" %c ", guessed[i][j]);
+                } else {
+                    System.out.printf(" %c ", key[i][j]);
+                }
             }
             System.out.println();
-        }    
+        }
+        cheat = false;
     }
     
     private void parseInput() {
@@ -134,11 +140,8 @@ public class SudokuGame {
     }
     
     private void cheat() {
-        for (int i = 0; i < guessed.length; i++) {
-            for (int l = 0; l < guessed.length; l++) {
-                guessed[i][l] = key[i][l];               
-            }
-        }
+        cheat = true;
+        // runs the guess command
     }
 
     private void parseSeed(File seedFile) {
