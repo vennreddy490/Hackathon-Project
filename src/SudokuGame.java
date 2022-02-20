@@ -20,7 +20,7 @@ public class SudokuGame {
         this.key = key;
         this.revealed = revealed;
         guessed = new char[key.length][key.length];
-    }
+     }
 
     public SudokuGame(File seedFile) {
         this.seedFile = seedFile;
