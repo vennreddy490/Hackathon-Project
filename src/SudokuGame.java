@@ -52,6 +52,7 @@ public class SudokuGame {
             case "g":
             //calls guess command=
             guess();
+            break;
             case "help":
             // calls help command
             help();
@@ -59,6 +60,7 @@ public class SudokuGame {
             case "h":
             //calls help command
             help();
+            break;
             case "quit":
             quit();
             // calls quit command
@@ -66,6 +68,7 @@ public class SudokuGame {
             case "q":
             //calls quit command
             quit();
+            break;
             case "cheat":
             cheat();
             // calls cheat command
