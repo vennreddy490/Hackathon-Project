@@ -30,16 +30,16 @@ public class SudokuDriver {
                             game.play();
                         }
                         else {
-                            System.err.println("Input Error: Type in dimension value of either 2 or 3");
+                            System.err.println("Input Error: Enter a dimension value of either 2 or 3");
                         }
                     }
                     else {
-                        System.err.println("Input Mismatch: Type in an integer");
+                        System.err.println("Input Mismatch: Enter an integer");
                     }
                 }   
 
                 catch (FileNotFoundException fnfe) {
-                    System.err.println("File Not Found Exception: the file is not found");
+                    System.err.println(fnfe.getMessage());
                 }
             }
             else if (args[0].equalsIgnoreCase("-seed") || args[0].equalsIgnoreCase("-s")) {
@@ -53,16 +53,16 @@ public class SudokuDriver {
                             gameOpt1.play();
                         }
                         else {
-                            System.err.println("Input Error: Type in dimension value of either 2 or 3");
+                            System.err.println("Input Error: Enter a dimension value of either 2 or 3");
                         }
                     }
                     else {
-                        System.err.println("Input Mismatch: Type in an integer");
+                        System.err.println("Input Mismatch: Enter an integer");
                     }
                 }
 
                 catch (FileNotFoundException fnfe) {
-                    System.err.println("File Not Found Exception: the file is not found");
+                    System.err.println(fnfe.getMessage());
                 }
 
             }
@@ -96,7 +96,6 @@ public class SudokuDriver {
             game.play();
 
         } else {
-
             System.err.println();
             System.err.println("Error: Provide path to seed file, or leave blank to generate a random board.");
 
