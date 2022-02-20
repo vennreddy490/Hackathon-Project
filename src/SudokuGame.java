@@ -20,13 +20,45 @@ public class SudokuGame {
         this.key = key;
         this.revealed = revealed;
         guessed = new char[key.length][key.length];
+    private Scanner input;
+    private void parseSeed(File seedFile) {
+        try {
+        input = new Scanner(seedFile);
+        dimensions = input.nextInt();
+        indencies = input.nextInt();
+        if (dimensions < 2 || dimensions > 3) {
+            System.err.println("Dimension size is too big or too small");
+            System.exit(2);
+        }
+        key = new char[dimensions][dimensions];
+        for (int r = 0; r < dimensions; r++) {
+            for (int c = 0; c < dimensions; c++) {
+                String value = String.valueOf(input.nextInt());
+                key[r][c] = value.charAt(0);
+            }
+        }
+        for (int i = 0; i < indencies; i++) {
+            int row = input.nextInt();
+            int column = input.nextInt();
+            revealed[row][column] = key[row][column];
+        }
+        } catch (FileNotFoundException fnfe) {
+            System.err.println(fnfe.getMessage());
+            System.exit(1);
+        } catch (InputMismatchException ime) {
+            System.err.println(ime.getMessage());
+            System.exit(2);
+        } catch (NoSuchElementException nsee) {
+            System.err.println(nsee.getMessage());
+            System.exit(2);
+        }
     }
 
     public SudokuGame(Scanner input, File seedFile) {
         stdIn = input;
         this.seedFile = seedFile;
     }
-    
+
     public void printBoard () {
 
         for (int i = 0; i < guessed.length; i++) {
