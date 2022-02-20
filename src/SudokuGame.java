@@ -139,7 +139,6 @@ public class SudokuGame {
     private void parseInput() {
         String userInput;
         userInput = stdIn.next();
-        
         switch (userInput) {
             case "guess":
             guess();
@@ -147,6 +146,7 @@ public class SudokuGame {
 
             case "g":
             guess();
+            break;
             
             case "help":
             help();
@@ -154,13 +154,15 @@ public class SudokuGame {
 
             case "h":
             help();
-            
+            break;
+
             case "quit":
             quit();
             break;
 
             case "q":
             quit();
+            break;
             
             case "cheat":
             cheat();
@@ -169,7 +171,7 @@ public class SudokuGame {
             default:
             System.err.println();
             System.err.println("Error: Command not recognized.");
-            return;
+            break;
         } // switch
     } // parseInput
     
