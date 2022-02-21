@@ -28,7 +28,7 @@ public class SudokuGame {
             for(int j = 0; j < guessed.length; j++) {
                 guessed[i][j] = revealed[i][j];
             }
-            System.out.println();
+            // System.out.println();
         }
     } // SudokuGame (Constructor)
     
@@ -134,6 +134,7 @@ public class SudokuGame {
             System.out.print(" ");
         }
         System.out.println();
+        cheat = false;
     } // printBoard
     
     private void parseInput() {
