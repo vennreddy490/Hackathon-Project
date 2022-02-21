@@ -1,3 +1,7 @@
+# COMPILER NOTE:
+
+To compile `SudokuGame.java` using the `javac` command, include the following flag as a command line argument: `-encoding ISO-8859-1`
+
 # HOW TO PLAY:
 
    ╔═════════╦═════════╦═════════╗
