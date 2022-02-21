@@ -4,6 +4,7 @@ To compile `SudokuGame.java` using the `javac` command, include the following fl
 
 # HOW TO PLAY:
 
+```
    ╔═════════╦═════════╦═════════╗
 0  ║[6] _ [3]║[8][5] _ ║ _  _  _ ║
 1  ║[7] _  _ ║ _ [1][6]║[8][2][3]║
@@ -18,6 +19,7 @@ To compile `SudokuGame.java` using the `javac` command, include the following fl
 8  ║ _  _ [6]║ _ [3][8]║[7] _ [9]║
    ╚═════════╩═════════╩═════════╝
      0  1  2   3  4  5   6  7  8
+```
 
 The goal of Sudoku is to fill each row, column, and box with a different number 1 - N,
 where N is the length and width of the grid. You'll need to use process of elimination
@@ -28,6 +30,7 @@ can't be 1, 3, 4, 5, 6, or 7 because then the number would appear twice in the s
 column. We also know it can't be 8 or 9 because then the number would twice in the same
 row.
 
+```
    ╔═════════╦═════════╦═════════╗
 0  ║[6] _ [3]║[8][5] _ ║ _  _  _ ║
 1  ║[7] _  _ ║ _ [1][6]║[8][2][3]║
@@ -42,12 +45,14 @@ row.
 8  ║ 2  _ [6]║ _ [3][8]║[7] _ [9]║
    ╚═════════╩═════════╩═════════╝
      0  1  2   3  4  5   6  7  8
+```
 
 From there, we can continue by process of elimination. We know  (6, 0) can't be 1, 2, 4,
 5, 6, 7, or 9, because those are already filled in in its column. We can also see that 
 know that 8 is already present in its box (see (7, 2)), so we know that's not an option.
 That means it has to be 3!
 
+```
    ╔═════════╦═════════╦═════════╗
 0  ║[6] _ [3]║[8][5] _ ║ _  _  _ ║
 1  ║[7] _  _ ║ _ [1][6]║[8][2][3]║
@@ -62,6 +67,7 @@ That means it has to be 3!
 8  ║ 2  _ [6]║ _ [3][8]║[7] _ [9]║
    ╚═════════╩═════════╩═════════╝
      0  1  2   3  4  5   6  7  8
+```
 
 Continue filling in numbers like this to win the game!
 
